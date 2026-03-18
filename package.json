@@ -2,8 +2,16 @@
   "name": "site-speed",
   "type": "module",
   "private": true,
+  "scripts": {
+    "format": "bunx prettier . --write",
+    "format:check": "bunx prettier . --check"
+  },
   "devDependencies": {
     "@types/bun": "^1.3.10",
+    "prettier": "3.8.1",
+    "prettier-plugin-curly": "0.4.1",
+    "prettier-plugin-tailwindcss": "0.7.2",
     "typescript": "^5.9.3"
-  }
+  },
+  "packageManager": "bun@1.3.10"
 }
