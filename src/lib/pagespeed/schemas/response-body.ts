@@ -10,3 +10,4 @@ export const MetricSavingsSchema = z.object({
   CLS: z.number().optional(),
   INP: z.number().optional(),
 });
+export type MetricSavings = z.infer<typeof MetricSavingsSchema>;
