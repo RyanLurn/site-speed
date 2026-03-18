@@ -2,8 +2,17 @@
 
 import type { ReactNode } from "react";
 
-import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import {
+  createRootRoute,
+  HeadContent,
+  ScriptOnce,
+  Scripts,
+} from "@tanstack/react-router";
+import { Toaster } from "sonner";
 
+import { ModeToggle } from "@/features/theme/components/mode-toggle";
+import { ThemeProvider } from "@/features/theme/components/provider";
+import { themeScript } from "@/features/theme/script";
 import styles from "@/globals.css?url";
 
 export const Route = createRootRoute({
@@ -35,7 +44,12 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        <ScriptOnce children={themeScript} />
+        <ThemeProvider>
+          <Toaster position="top-center" closeButton richColors />
+          {children}
+          <ModeToggle className="fixed top-3 right-3 z-50" />
+        </ThemeProvider>
         <Scripts />
       </body>
     </html>
