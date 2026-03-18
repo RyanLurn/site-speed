@@ -3,6 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "check-types": "bunx tsc --noEmit",
     "format": "bunx prettier . --write",
     "format:check": "bunx prettier . --check"
   },
