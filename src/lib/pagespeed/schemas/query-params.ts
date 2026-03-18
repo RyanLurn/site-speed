@@ -1,9 +1,5 @@
 import { z } from "zod";
 
-export const LighthouseCategory = z.enum([
-  "CATEGORY_UNSPECIFIED",
-  "ACCESSIBILITY",
-  "BEST_PRACTICES",
-  "PERFORMANCE",
-  "SEO",
-]);
+export const LighthouseCategory = z
+  .enum(["ACCESSIBILITY", "BEST_PRACTICES", "PERFORMANCE", "SEO"])
+  .default("PERFORMANCE");
