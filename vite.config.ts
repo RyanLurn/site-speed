@@ -1,8 +1,8 @@
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import react from "@vitejs/plugin-react";
+import react, { reactCompilerPreset } from "@vitejs/plugin-react";
+import babel from "@rolldown/plugin-babel";
 import { defineConfig } from "vite";
 import { resolve } from "node:path";
-
 export default defineConfig({
   plugins: [
     // Make sure that '@tanstack/react-start/plugin/vite' is passed before '@vitejs/plugin-react'
@@ -13,6 +13,7 @@ export default defineConfig({
       },
     }),
     react(),
+    babel({ presets: [reactCompilerPreset()] }),
   ],
   resolve: {
     alias: {
