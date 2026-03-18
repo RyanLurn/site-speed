@@ -1,6 +1,12 @@
-import type { UserTheme } from "@/features/theme/schemas";
+import { z } from "zod";
 
-import { UserThemeSchema } from "@/features/theme/schemas";
+export const UserThemeSchema = z
+  .enum(["light", "dark", "system"])
+  .catch("system");
+export const AppThemeSchema = z.enum(["light", "dark"]).catch("light");
+
+export type UserTheme = z.infer<typeof UserThemeSchema>;
+export type AppTheme = z.infer<typeof AppThemeSchema>;
 
 export const THEME_STORAGE_KEY = "ui-theme";
 
